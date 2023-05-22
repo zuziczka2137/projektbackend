@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wybierz lekarza</title>
+</head>
+<body>
+    <h1>Wybierz lekarza</h1>
+    <form action="/wybrany-lekarz" method="post">
+        {% for imie in imiona_lekarzy %}
+        <button type="submit" name="imie" value="{{ imie[0] }}">{{ imie[0] }} - {{imie[1]}}</button>
+        {% endfor %}
+    </form>
+</body>
+</html>

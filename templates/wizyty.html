@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+            border-collapse: collapse; /* Scalanie obramowań */
+        }
+    th,td {
+        text-align: center; /* Wycentrowanie zawartości komórek */
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+<title>Twoje wizyty</title>
+</head>
+<body>
+<h1>Twoje wizyty</h1>
+<table>
+<tr>
+  <th>id wizyty</th>
+  <th>data</th>
+  <th>godzina</th>
+  <th>id lekarza</th>
+  <th>lekarz</th>
+</tr>
+{% for record in records %}
+<tr>
+  <td>{{record[0]}}</td>
+  <td>{{record[2]}}</td>
+  <td>{{record[3]}}</td>
+  <td>{{record[4]}}</td>
+  <td>{{record[5]}}</td>
+</tr>
+{% endfor %}
+  </table>
+  <a href='/zalogowano'><button>Powrót do konta</button></a>
+  <a href='/nowawizyta'><button>Umów nową wizytę</button></a>
+</body>
+</html>

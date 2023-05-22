@@ -1,0 +1,71 @@
+<style>
+    .wizyta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.godzina {
+  margin-right: 10px;
+}
+</style>
+<form action="/kalendarz" method="POST">
+    <label for="data">Wybierz datę:</label>
+    <select id="data" name="data">
+        {% for data in daty %}
+            <option value="{{ data }}">{{ data }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Wybierz">
+    {% if wizyty %}
+    <h2>Wizyty na {{wizyty[0][0]}}:</h2>
+    {% for i in godziny %}
+        <div class="wizyta">
+            <span class="godzina">{{ i }} wolny termin</span>
+            <form action="/rezerwacja" method="POST">
+                <input type="hidden" name="wybrana_godzina" value="{{ i }}">
+                <button type="submit">Zarezerwuj</button>
+            </form>
+        </div>
+    {% endfor %}
+    {% else %}
+    <h2>Wizyty na {{data}}:</h2>
+    
+    <div class="wizyta">
+        <span class="godzina">10:00:00 wolny termin</span>
+        <form action="/rezerwacja" method="POST">
+            <input type="hidden" name="wybrana_godzina" value="10:00:00">
+            <button type="submit">Zarezerwuj</button>
+        </form>
+    </div>
+    <div class="wizyta">
+        <span class="godzina">11:00:00 wolny termin</span>
+        <form action="/rezerwacja" method="POST">
+            <input type="hidden" name="wybrana_godzina" value="11:00:00">
+            <button type="submit">Zarezerwuj</button>
+        </form>
+    </div>
+    <div class="wizyta">
+        <span class="godzina">12:00:00 wolny termin</span>
+        <form action="/rezerwacja" method="POST">
+            <input type="hidden" name="wybrana_godzina" value="12:00:00">
+            <button type="submit">Zarezerwuj</button>
+        </form>
+    </div>
+    <div class="wizyta">
+        <span class="godzina">13:00:00 wolny termin</span>
+        <form action="/rezerwacja" method="POST">
+            <input type="hidden" name="wybrana_godzina" value="13:00:00">
+            <button type="submit">Zarezerwuj</button>
+        </form>
+    </div>
+    <div class="wizyta">
+        <span class="godzina">14:00:00 wolny termin</span>
+        <form action="/rezerwacja" method="POST">
+            <input type="hidden" name="wybrana_godzina" value="14:00:00">
+            <button type="submit">Zarezerwuj</button>
+        </form>
+    </div>
+    {% endif %}
+</form>
+ 
